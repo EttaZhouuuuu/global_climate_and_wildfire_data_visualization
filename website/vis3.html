@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Visualization 3 - Bubble Plot</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/vis3.css?v=20260210a">
+</head>
+<body>
+  <div class="bg-layer bg-layer-top"></div>
+  <div class="bg-layer bg-layer-bottom"></div>
+
+  <header class="site-header">
+    <div class="header-row header-row-top">
+      <p class="course-name">STATS 401: Data Acquisition and Visualization</p>
+      <nav aria-label="Primary">
+        <ul class="nav-links">
+          <li><a href="./intro.html">Introduction</a></li>
+          <li><a href="./vis1.html">Visualization 1</a></li>
+          <li><a href="./vis2.html">Visualization 2</a></li>
+          <li><a class="active" href="./vis3.html">Visualization 3</a></li>
+          <li><a href="./vis4.html">Visualization 4</a></li>
+          <li><a href="./vis5.html">Visualization 5</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="header-row header-row-bottom">
+      <p class="school-name">Duke Kunshan University</p>
+      <p class="team-members-header">Group 10: Ziyue Yin, Xin Jiang, Yitong Zhou</p>
+    </div>
+  </header>
+
+  <main class="page-content">
+    <section class="intro-card">
+      <p class="eyebrow">Visualization 3</p>
+      <h1>CO2 Emissions and Temperature Bubble Plot</h1>
+      <p class="intro-text">
+        Each bubble represents a country in the selected year. X-axis is national CO2 emissions from OWID,
+        Y-axis is temperature change attributable to CO2, bubble size is population, and color encodes region.
+      </p>
+      <div class="control-grid">
+        <label class="control-label" for="year-slider">
+          Year
+          <input id="year-slider" type="range" min="1750" max="2024" value="1990" step="1">
+          <span id="year-value">1990</span>
+        </label>
+        <button id="play-button" class="control-button">Play</button>
+        <label class="control-label" for="speed-slider">
+          Speed
+          <input id="speed-slider" type="range" min="0.5" max="3.0" value="1.0" step="0.1">
+          <span id="speed-value">1.0x</span>
+        </label>
+      </div>
+      <p id="vis3-status" class="status-line">Loading bubble data...</p>
+    </section>
+
+    <section class="chart-card">
+      <div class="chart-wrap vis3-stage">
+        <div class="vis3-layout">
+          <div class="chart-panel">
+            <svg id="bubble-svg" aria-label="Bubble plot of CO2 and temperature"></svg>
+            <div id="bubble-tooltip" class="bubble-tooltip"></div>
+          </div>
+          <aside class="filter-panel">
+            <h2>Filters</h2>
+            <div class="filter-controls">
+              <button id="select-all" class="mini-button">Select All</button>
+              <button id="clear-all" class="mini-button">Clear All</button>
+            </div>
+
+            <h3>Regions</h3>
+            <div id="region-filter" class="checkbox-list"></div>
+
+            <h3>Country Search</h3>
+            <input id="country-search" class="country-search" type="text" placeholder="Type to filter countries...">
+
+            <h3>Countries</h3>
+            <div id="country-filter" class="checkbox-list country-list"></div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="js/vis3.js"></script>
+</body>
+</html>
