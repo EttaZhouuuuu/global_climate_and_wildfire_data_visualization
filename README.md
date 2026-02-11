@@ -6,7 +6,8 @@ Course project website for:
 - Group 10: Ziyue Yin, Xin Jiang, Yitong Zhou
 
 ## TL;DR
-Simply access [https://larry-ziyue-yin.github.io/global_climate_and_wildfire_data_visualization/](https://larry-ziyue-yin.github.io/global_climate_and_wildfire_data_visualization/) to view the visualization via web!
+
+Simply access [https://ettazhouuuuu.github.io/global_climate_and_wildfire_data_visualization/](https://ettazhouuuuu.github.io/global_climate_and_wildfire_data_visualization/) to view the visualization via web!
 
 ## Project Overview
 
@@ -18,19 +19,20 @@ Current pages:
 - `website/vis2.html`: global wildfire map + rotating globe with year/month/day playback
 - `website/vis3.html`: country-level bubble plot (CO2 vs temperature change, bubble size by population)
 - `website/vis4.html`: unified template page (in progress)
-- `website/vis5.html`: unified template page (in progress)
+- `website/vis5.html`: Nightingale Rose Diagram - Global Wildfire Count by Year
+- `website/vis6.html`: Wildfire Tweet Word Cloud - California wildfire sentiment analysis
 
 ## Repository Structure
 
 - `website/`: HTML/CSS/JS for the website
-- `website/js/bar.js`: logic for Visualization 1
+- `website/js/vis1.js`: logic for Visualization 1
 - `website/js/vis2.js`: logic for Visualization 2
 - `website/js/vis3.js`: logic for Visualization 3
-- `data/preprocessed/`: preprocessed CSVs used directly by website pages
-- `data/co2/`: OWID CO2 dataset used by Visualization 3
-- `scripts/build_vis2_fire_samples.py`: script to generate vis2 sampled point files
-- `index.html`: root entry page that redirects to `website/intro.html`
-- `.nojekyll`: ensures GitHub Pages serves files directly
+- `website/js/vis5.js`: logic for Visualization 5
+- `website/js/vis6.js`: logic for Visualization 6 (Word Cloud)
+- `data/`: raw and preprocessed data files
+- `data/DisasterTweets.csv`: Kaggle disaster tweets dataset for vis6 word cloud
+- `data/wildfire_wordcloud_data.csv`: processed wildfire-specific word cloud data
 
 ## Data Used by Each Visualization
 
@@ -48,6 +50,9 @@ Current pages:
 - Visualization 3 (`vis3`)
   - `data/co2/owid-co2-data.csv`
   - `data/preprocessed/vis3/country_to_region.csv`
+
+- Visualization 6 (`vis6`)
+  - `data/wildfire_wordcloud_data.csv`: Word cloud data from Kaggle Disaster Tweets, filtered for wildfire-specific terms
 
 ## Important Note About Raw Wildfire Data
 
@@ -73,20 +78,20 @@ python3 -m http.server 5500
 ```
 
 Then open:
-- `http://127.0.0.1:5500/website/intro.html`
+- `http://127.0.0.1.5500/website/intro.html`
 
 ## GitHub Pages Deployment
 
 1. Go to `Settings` -> `Pages`.
 2. Set `Source` to `Deploy from a branch`.
 3. Select branch `main`.
-4. Select folder `/(root)`.
+4. Select folder `/website`.
 5. Save and wait for deployment.
 
 Site root:
 - `https://<your-username>.github.io/<repo-name>/`
 
-Because `index.html` redirects, site root should open `website/intro.html`.
+This will serve content from the `website/` folder.
 
 ## Update vis2 Data (Yearly Samples)
 
@@ -105,3 +110,16 @@ This updates:
 - `data/preprocessed/vis2/sample_summary.csv`
 
 Then commit updated preprocessed files to make them available on GitHub Pages.
+
+## About Visualization 6 (Word Cloud)
+
+Visualization 6 displays frequently mentioned words in tweets about California wildfires.
+
+**Data Source:**
+- Kaggle Disaster Tweets dataset
+- Filtered for wildfire-specific terms only (excluding broader climate/disaster terms)
+
+**Features:**
+- Word size indicates usage frequency
+- Colors represent sentiment (positive, green; neutral, gray; negative, red)
+- Hover over words to enlarge for clearer viewing
