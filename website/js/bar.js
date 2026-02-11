@@ -54,10 +54,10 @@ function sciFormat(v) {
 
 (function loadData() {
     return Promise.all([
-        d3.csv("../data/preprocessed/wildfire_count_by_year_type.csv"),
-        d3.csv("../data/preprocessed/global_co2_by_year.csv"),
-        d3.csv("../data/preprocessed/global_precip_by_year.csv"),
-        d3.csv("../data/preprocessed/global_tem_by_year.csv")
+        d3.csv("data/preprocessed/wildfire_count_by_year_type.csv"),
+            d3.csv("data/preprocessed/global_co2_by_year.csv"),
+            d3.csv("data/preprocessed/global_precip_by_year.csv"),
+            d3.csv("data/preprocessed/global_tem_by_year.csv")
     ]);
 })().then(function([wildfireData, co2Data, precipData, temData]) {
     wildfireData = wildfireData.map(d => ({

@@ -298,8 +298,8 @@ function setSpeedLabel() {
 
 async function init() {
     const [owidRows, regionRows] = await Promise.all([
-        d3.csv("../data/co2/owid-co2-data.csv"),
-        d3.csv("../data/preprocessed/vis3/country_to_region.csv")
+        d3.csv("data/co2/owid-co2-data.csv"),
+        d3.csv("data/preprocessed/vis3/country_to_region.csv")
     ]);
 
     const countryToRegion = new Map(regionRows.map(d => [d.Country, d.Region]));

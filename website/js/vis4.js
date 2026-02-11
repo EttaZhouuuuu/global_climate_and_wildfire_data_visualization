@@ -635,10 +635,10 @@ speedSlider.on("input", function() {
 async function loadData() {
     try {
         const [wildfire, co2, temp, precip] = await Promise.all([
-            d3.csv("../data/preprocessed/wildfire_count_by_year_type.csv"),
-            d3.csv("../data/preprocessed/global_co2_by_year.csv"),
-            d3.csv("../data/preprocessed/global_tem_by_year.csv"),
-            d3.csv("../data/preprocessed/global_precip_by_year.csv")
+            d3.csv("data/preprocessed/wildfire_count_by_year_type.csv"),
+            d3.csv("data/preprocessed/global_co2_by_year.csv"),
+            d3.csv("data/preprocessed/global_tem_by_year.csv"),
+            d3.csv("data/preprocessed/global_precip_by_year.csv")
         ]);
         
         // Process wildfire data - year as NUMBER
