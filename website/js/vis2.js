@@ -290,7 +290,7 @@ async function loadWorldFeatures() {
 
 async function loadSampleSummary() {
     try {
-        const rows = await d3.csv("data/preprocessed/vis2/sample_summary.csv", d => ({
+        const rows = await d3.csv("../data/preprocessed/vis2/sample_summary.csv", d => ({
             year: +d.year,
             validRows: +d.valid_rows,
             sampleRows: +d.sample_rows
@@ -302,7 +302,7 @@ async function loadSampleSummary() {
 }
 
 async function loadFullCounts() {
-    const rows = await d3.csv("data/preprocessed/wildfire_count_by_year_type.csv", d => ({
+    const rows = await d3.csv("../data/preprocessed/wildfire_count_by_year_type.csv", d => ({
         year: +(d.year ?? d.YEAR ?? ""),
         type: String(d.type ?? d.TYPE ?? ""),
         count: +(d.count ?? d.COUNT ?? 0)
@@ -319,7 +319,7 @@ async function loadFullCounts() {
 
 async function loadYearPoints(year) {
     if (yearCache.has(year)) return yearCache.get(year);
-    const points = await d3.csv(`data/preprocessed/vis2/fire_points_${year}.csv`, d => {
+    const points = await d3.csv(`../data/preprocessed/vis2/fire_points_${year}.csv`, d => {
         const acqDate = d.acq_date || "";
         const dateParts = parseAcqDateParts(acqDate);
         return {
