@@ -18,9 +18,9 @@ Current pages:
 - `website/vis1.html`: annual wildfire detections by type with climate trend overlays
 - `website/vis2.html`: global wildfire map + rotating globe with year/month/day playback
 - `website/vis3.html`: country-level bubble plot (CO2 vs temperature change, bubble size by population)
-- `website/vis4.html`: unified template page (in progress)
+- `website/vis4.html`: Climate-Wildfire Correlation Matrix - analyzes relationships between climate factors and wildfire types
 - `website/vis5.html`: Nightingale Rose Diagram - Global Wildfire Count by Year
-- `website/vis6.html`: Wildfire Tweet Word Cloud - California wildfire sentiment analysis
+- `website/vis6.html`: Wildfire Tweet Word Cloud - California wildfire sentiment analysis from social media
 
 ## Repository Structure
 
@@ -28,7 +28,8 @@ Current pages:
 - `website/js/vis1.js`: logic for Visualization 1
 - `website/js/vis2.js`: logic for Visualization 2
 - `website/js/vis3.js`: logic for Visualization 3
-- `website/js/vis5.js`: logic for Visualization 5
+- `website/js/vis4.js`: logic for Visualization 4 (Correlation Matrix)
+- `website/js/vis5.js`: logic for Visualization 5 (Nightingale Rose)
 - `website/js/vis6.js`: logic for Visualization 6 (Word Cloud)
 - `data/`: raw and preprocessed data files
 - `data/DisasterTweets.csv`: Kaggle disaster tweets dataset for vis6 word cloud
@@ -50,6 +51,33 @@ Current pages:
 - Visualization 3 (`vis3`)
   - `data/co2/owid-co2-data.csv`
   - `data/preprocessed/vis3/country_to_region.csv`
+
+- Visualization 4 (`vis4`) - Climate-Wildfire Correlation Matrix
+  - `data/preprocessed/wildfire_count_by_year_type.csv`: wildfire counts by type (vegetation, volcano, static, offshore)
+  - `data/preprocessed/global_co2_by_year.csv`: global CO2 emissions data
+  - `data/preprocessed/global_tem_by_year.csv`: global temperature anomaly data
+  - `data/preprocessed/global_precip_by_year.csv`: global precipitation data
+
+  **Features:**
+  - 7×7 heatmap showing Pearson correlation coefficients between climate factors and wildfire types
+  - Color scale: blue (negative correlation) → white (no correlation) → red (positive correlation)
+  - Interactive year range selector (2012-2025) to filter data
+  - Animation feature to visualize how correlations change over time
+  - Speed control for animation playback
+  - Tooltips showing correlation values, data points, and year range
+  - Automatic insights panel highlighting strongest positive/negative correlations
+  - Divider lines separating climate factors from wildfire types
+
+- Visualization 5 (`vis5`) - Nightingale Rose Diagram
+  - `data/preprocessed/wildfire_count_by_year_type.csv`: aggregated wildfire counts by year and type
+
+  **Features:**
+  - Polar area diagram (Nightingale Rose Chart) showing global wildfire counts by year
+  - Each segment represents a year, with area proportional to total wildfire count
+  - Color-coded segments based on wildfire type (vegetation, volcano, static, offshore)
+  - Interactive hover effects with tooltips showing year, total count, and breakdown by type
+  - Displays trends in global wildfire frequency over time
+  - Helps identify years with unusual wildfire activity
 
 - Visualization 6 (`vis6`)
   - `data/wildfire_wordcloud_data.csv`: Word cloud data from Kaggle Disaster Tweets, filtered for wildfire-specific terms
@@ -78,7 +106,7 @@ python3 -m http.server 5500
 ```
 
 Then open:
-- `http://127.0.0.1.5500/website/intro.html`
+- `http://127.0.0.1:5500/website/intro.html`
 
 ## GitHub Pages Deployment
 
