@@ -95,14 +95,50 @@
         </a>
         <a class="guide-card" href="./vis4.html">
           <p class="guide-tag">Visualization 4</p>
-          <h3>In Progress</h3>
-          <p>Reserved for your fourth analytical view.</p>
+          <h3>Correlation Matrix</h3>
+          <p>Climate-wildfire relationships visualized as an interactive heatmap.</p>
         </a>
         <a class="guide-card" href="./vis5.html">
           <p class="guide-tag">Visualization 5</p>
-          <h3>In Progress</h3>
-          <p>Reserved for your final synthesis view.</p>
+          <h3>Wildfire Tweet Word Cloud</h3>
+          <p>Word cloud displaying frequently mentioned words in tweets about wildfires, with colors representing sentiment (positive, neutral, negative).</p>
         </a>
+      </div>
+    </section>
+
+    <section class="chart-card intro-info-card">
+      <h2>Visualization 5: Wildfire Tweet Word Cloud</h2>
+      <div class="intro-grid">
+        <article class="intro-panel">
+          <h3>Overview</h3>
+          <p>
+            Visualization 5 explores <strong>public sentiment</strong> during wildfire disasters through 
+            social media analysis. This word cloud displays frequently mentioned words in tweets about 
+            notable wildfire events, helping us understand how people discuss and respond to these disasters.
+          </p>
+          <h3>Key Features</h3>
+          <ul class="intro-list">
+            <li><strong>Word Cloud:</strong> Displays frequently mentioned words with size indicating usage frequency</li>
+            <li><strong>Sentiment Colors:</strong> Green for positive, gray for neutral, and red for negative sentiment</li>
+            <li><strong>Interactive Hover:</strong> Hover over words to enlarge them for clearer viewing</li>
+            <li><strong>Tooltips:</strong> Shows word, sentiment classification, and frequency count</li>
+          </ul>
+        </article>
+
+        <article class="intro-panel">
+          <h3>Analysis Insights</h3>
+          <ul class="intro-list">
+            <li><strong>Topic Dominance:</strong> Words like "wildfires", "fire", "acres", and "burning" dominate discussions</li>
+            <li><strong>Emotional Patterns:</strong> Negative sentiment words like "damage", "lost", and "flames" reflect concern about wildfire impacts</li>
+            <li><strong>Community Response:</strong> Words like "firefighters" indicate community awareness and solidarity</li>
+            <li><strong>Scale Indicators:</strong> Terms like "acres" and specific fire names (e.g., "maui") show discussion of fire scale and location</li>
+          </ul>
+          <h3>Data Source</h3>
+          <p>
+            <code>website/data/wildfire_wordcloud_data.csv</code><br>
+            Processed tweet data from Kaggle Disaster Tweets Dataset, filtered for wildfire-specific content and analyzed for word frequency and sentiment classification using VADER.
+          </p>
+        </article>
       </div>
     </section>
 

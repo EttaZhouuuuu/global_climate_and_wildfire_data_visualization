@@ -1,53 +1,134 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Visualization 5 Template</title>
+  <title>Visualization 5 - California Wildfire Tweet Word Cloud</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="css/vis1.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/vis5.css?v=20260210a">
 </head>
 <body>
-  <div class="bg-layer bg-layer-top"></div>
-  <div class="bg-layer bg-layer-bottom"></div>
-
-  <header class="site-header">
-    <div class="header-row header-row-top">
-      <p class="course-name">STATS 401: Data Acquisition and Visualization</p>
-      <nav aria-label="Primary">
-        <ul class="nav-links">
-          <li><a href="./intro.html">Introduction</a></li>
-          <li><a href="./vis1.html">Visualization 1</a></li>
-          <li><a href="./vis2.html">Visualization 2</a></li>
-          <li><a href="./vis3.html">Visualization 3</a></li>
-          <li><a href="./vis4.html">Visualization 4</a></li>
-          <li><a class="active" href="./vis5.html">Visualization 5</a></li>
-        </ul>
-      </nav>
-    </div>
-    <div class="header-row header-row-bottom">
-      <p class="school-name">Duke Kunshan University</p>
-      <p class="team-members-header">Group 10: Ziyue Yin, Xin Jiang, Yitong Zhou</p>
-    </div>
-  </header>
-
-  <main class="page-content">
-    <section class="intro-card">
-      <p class="eyebrow">Visualization 5</p>
-      <h1>Template for Visualization 5</h1>
-      <p class="intro-text">This is a baseline layout for the final visualization page. Keep this frame and replace the panel with your completed visual story.</p>
-    </section>
-
-    <section class="chart-card">
-      <div class="chart-wrap chart-placeholder-wrap">
-        <div class="chart-placeholder">
-          <p class="placeholder-title">Visualization 5 Placeholder</p>
-          <p>Chart area reserved for implementation.</p>
-        </div>
+  <div class="page">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-content">
+        <h1>California Wildfire Tweet Word Cloud</h1>
+        <p class="subtitle">Public Sentiment Analysis from Social Media During California Wildfire Events</p>
       </div>
-    </section>
-  </main>
+      <div class="header-nav">
+        <a href="intro.html" class="nav-link">← Back</a>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+      <!-- Info Section -->
+      <section class="section">
+        <div class="info-card">
+          <div class="info-icon">🔥</div>
+          <div class="info-content">
+            <h3>About This Visualization</h3>
+            <p>
+              This word cloud displays frequently mentioned words in tweets about California wildfire events.
+              The visualization helps understand public sentiment and key discussion topics during wildfire disasters.
+              Larger words indicate higher usage frequency across collected tweets.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Word Cloud Container -->
+      <section class="section">
+        <div class="cloud-container">
+          <div class="cloud-header">
+            <span class="cloud-icon"></span>
+            <h2>California Wildfire Tweet Word Cloud</h2>
+          </div>
+          <div class="cloud-wrapper">
+            <div id="word-cloud"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sentiment Legend -->
+      <section class="section">
+        <div class="legend-card">
+          <h3 class="legend-title">Sentiment Classification</h3>
+          <div class="legend-items">
+            <div class="legend-item">
+              <span class="legend-dot positive"></span>
+              <span class="legend-label">Positive Sentiment</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-dot neutral"></span>
+              <span class="legend-label">Neutral Sentiment</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-dot negative"></span>
+              <span class="legend-label">Negative Sentiment</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Insights Section -->
+      <section class="section insights-section">
+        <h2 class="section-title">Key Insights</h2>
+        <div class="insights-grid">
+          <div class="insight-card">
+            <div class="insight-icon">🔥</div>
+            <h4>Most Discussed Topics</h4>
+            <p>Words like "wildfires", "wildfire", "fire", and "acres" dominate the conversation, reflecting the severity and scale of wildfire events.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-icon">😊</div>
+            <h4>Public Sentiment</h4>
+            <p>Majority of tweets show negative sentiment, with words like "damage", "lost", "flames", and "spread" reflecting concern about wildfire impacts.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-icon">🤝</div>
+            <h4>Community Response</h4>
+            <p>Positive sentiment words such as "firefighters" and "smoke" indicate community awareness and solidarity with first responders.</p>
+          </div>
+          <div class="insight-card">
+            <div class="insight-icon">📊</div>
+            <h4>Data Overview</h4>
+            <p>This visualization analyzes <strong>242 real tweets</strong> from the Kaggle Disaster Tweets Dataset, filtered for wildfire-specific content. Only directly wildfire-related terms are included (e.g., fire, flames, evacuation, firefighters), excluding general climate/disaster terms.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Interaction Guide -->
+      <section class="section">
+        <div class="interaction-card">
+          <h3>How to Interact</h3>
+          <ul class="interaction-list">
+            <li>
+              <span class="interaction-icon">👆</span>
+              <span><strong>Hover over words</strong> to enlarge them for clearer viewing</span>
+            </li>
+            <li>
+              <span class="interaction-icon">🎨</span>
+              <span><strong>Color indicates sentiment</strong> - green for positive, gray for neutral, red for negative</span>
+            </li>
+            <li>
+              <span class="interaction-icon">📏</span>
+              <span><strong>Size reflects frequency</strong> - larger words were used more often in tweets</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Tooltip for word cloud -->
+  <div id="tooltip" class="tooltip" style="opacity: 0;"></div>
+
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/d3-cloud@1.2.7/build/d3.layout.cloud.js"></script>
+  <script src="js/vis5.js"></script>
 </body>
 </html>
+
