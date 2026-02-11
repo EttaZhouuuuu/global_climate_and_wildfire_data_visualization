@@ -19,8 +19,7 @@ Current pages:
 - `website/vis2.html`: global wildfire map + rotating globe with year/month/day playback
 - `website/vis3.html`: country-level bubble plot (CO2 vs temperature change, bubble size by population)
 - `website/vis4.html`: Climate-Wildfire Correlation Matrix - analyzes relationships between climate factors and wildfire types
-- `website/vis5.html`: Nightingale Rose Diagram - Global Wildfire Count by Year
-- `website/vis6.html`: Wildfire Tweet Word Cloud - California wildfire sentiment analysis from social media
+- `website/vis5.html`: Wildfire Tweet Word Cloud - California wildfire sentiment analysis from social media
 
 ## Repository Structure
 
@@ -29,10 +28,9 @@ Current pages:
 - `website/js/vis2.js`: logic for Visualization 2
 - `website/js/vis3.js`: logic for Visualization 3
 - `website/js/vis4.js`: logic for Visualization 4 (Correlation Matrix)
-- `website/js/vis5.js`: logic for Visualization 5 (Nightingale Rose)
-- `website/js/vis6.js`: logic for Visualization 6 (Word Cloud)
+- `website/js/vis5.js`: logic for Visualization 5 (Word Cloud)
 - `data/`: raw and preprocessed data files
-- `data/DisasterTweets.csv`: Kaggle disaster tweets dataset for vis6 word cloud
+- `data/DisasterTweets.csv`: Kaggle disaster tweets dataset for vis5 word cloud
 - `data/wildfire_wordcloud_data.csv`: processed wildfire-specific word cloud data
 
 ## Data Used by Each Visualization
@@ -68,19 +66,20 @@ Current pages:
   - Automatic insights panel highlighting strongest positive/negative correlations
   - Divider lines separating climate factors from wildfire types
 
-- Visualization 5 (`vis5`) - Nightingale Rose Diagram
-  - `data/preprocessed/wildfire_count_by_year_type.csv`: aggregated wildfire counts by year and type
+- Visualization 5 (`vis5`) - Wildfire Tweet Word Cloud
+  - `data/wildfire_wordcloud_data.csv`: processed word cloud data from Kaggle Disaster Tweets
 
   **Features:**
-  - Polar area diagram (Nightingale Rose Chart) showing global wildfire counts by year
-  - Each segment represents a year, with area proportional to total wildfire count
-  - Color-coded segments based on wildfire type (vegetation, volcano, static, offshore)
-  - Interactive hover effects with tooltips showing year, total count, and breakdown by type
-  - Displays trends in global wildfire frequency over time
-  - Helps identify years with unusual wildfire activity
-
-- Visualization 6 (`vis6`)
-  - `data/wildfire_wordcloud_data.csv`: Word cloud data from Kaggle Disaster Tweets, filtered for wildfire-specific terms
+  - Displays frequently mentioned words in tweets about California wildfires
+  - Word size indicates usage frequency (larger = more frequent)
+  - Color represents sentiment:
+    - 🟢 Green: Positive sentiment
+    - ⚪ Gray: Neutral sentiment
+    - 🔴 Red: Negative sentiment
+  - Interactive hover effects: hover over words to enlarge them for clearer viewing
+  - Tooltips showing word, sentiment, and frequency
+  - Data filtered for wildfire-specific terms only (excluding broader climate/disaster terms)
+  - Analyzes real tweets from Kaggle Disaster Tweets Dataset
 
 ## Important Note About Raw Wildfire Data
 
@@ -139,15 +138,18 @@ This updates:
 
 Then commit updated preprocessed files to make them available on GitHub Pages.
 
-## About Visualization 6 (Word Cloud)
-
-Visualization 6 displays frequently mentioned words in tweets about California wildfires.
+## About Visualization 5 (Word Cloud)
 
 **Data Source:**
-- Kaggle Disaster Tweets dataset
-- Filtered for wildfire-specific terms only (excluding broader climate/disaster terms)
+- Kaggle Disaster Tweets Dataset (https://www.kaggle.com/datasets/vstepanchap/twitter-disaster-tweets)
+- Filtered for wildfire-specific terms only
 
-**Features:**
-- Word size indicates usage frequency
-- Colors represent sentiment (positive, green; neutral, gray; negative, red)
-- Hover over words to enlarge for clearer viewing
+**Sentiment Analysis:**
+- Uses VADER (Valence Aware Dictionary and sEntiment Reasoner)
+- Classifies tweets as Positive, Neutral, or Negative
+
+**Key Insights from Data:**
+- Most discussed topics: "wildfires", "fire", "acres", "burning" dominate the conversation
+- Majority of tweets show negative sentiment (damage, lost, flames, spread)
+- Positive sentiment words: "firefighters", "smoke" indicate community solidarity with responders
+- Analyzes 242+ real tweets filtered for wildfire-specific content
